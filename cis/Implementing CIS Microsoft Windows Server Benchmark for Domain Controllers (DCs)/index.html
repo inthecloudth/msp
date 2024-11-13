@@ -1,0 +1,1011 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Find out about the security baselines in your environment">
+      
+      
+        <meta name="author" content="denisebmsft">
+      
+      
+        <link rel="canonical" href="https://inthecloud.co.th/cog/cis/Implementing%20CIS%20Microsoft%20Windows%20Server%20Benchmark%20for%20Domain%20Controllers%20%28DCs%29/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>Security baselines assessment - In the Cloud</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#security-baselines-assessment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="In the Cloud" class="md-header__button md-logo" aria-label="In the Cloud" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            In the Cloud
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Security baselines assessment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../home/" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ms/azure/Onboard%20Azure%20Arc-enabled%20servers/" class="md-tabs__link">
+          
+  
+  Microsoft
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="In the Cloud" class="md-nav__button md-logo" aria-label="In the Cloud" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    In the Cloud
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Azure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Onboard%20Azure%20Arc-enabled%20servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Arc - Onboard the servers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Enable%20Azure%20File%20Sync%20on%20an%20on-premises%20file%20share/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage - Enable Azure File Sync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Install%20Microsoft%20Azure%20Backup%20Server%20%28MABS%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Backup - Install Azure Backup Server (MABS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Create an Azure Kubernetes Service (AKS) cluster.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AKS - Create an AKS cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft 365
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft 365
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Onboard%20Azure%20Arc-enabled%20servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Arc - Onboard the servers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Enable%20Azure%20File%20Sync%20on%20an%20on-premises%20file%20share/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage - Enable Azure File Sync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Install%20Microsoft%20Azure%20Backup%20Server%20%28MABS%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Backup - Install Azure Backup Server (MABS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Create an Azure Kubernetes Service (AKS) cluster.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create an Azure Kubernetes Service (AKS) cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Platform
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Onboard%20Azure%20Arc-enabled%20servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Arc - Onboard the servers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Enable%20Azure%20File%20Sync%20on%20an%20on-premises%20file%20share/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage - Enable Azure File Sync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Install%20Microsoft%20Azure%20Backup%20Server%20%28MABS%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Backup - Install Azure Backup Server (MABS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ms/azure/Create an Azure Kubernetes Service (AKS) cluster.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create an Azure Kubernetes Service (AKS) cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-started-with-security-baselines-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get started with security baselines assessment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-baselines-assessment-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security baselines assessment overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-security-baseline-profile-assessment-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review security baseline profile assessment results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Review security baseline profile assessment results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-by-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      View by configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-by-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      View by device
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-and-manage-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create and manage exceptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-advanced-hunting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use advanced hunting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related articles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="security-baselines-assessment">Security baselines assessment</h1>
+<p><strong>Applies to:</strong></p>
+<ul>
+<li><a href="defender-vulnerability-management.md">Microsoft Defender Vulnerability Management</a></li>
+<li><a href="/defender-xdr">Microsoft Defender XDR</a></li>
+<li><a href="/azure/defender-for-cloud/plan-defender-for-servers-select-plan">Microsoft Defender for Servers Plan 2</a></li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+To use this feature you'll require Microsoft Defender Vulnerability Management Standalone or if you're already a Microsoft Defender for Endpoint Plan 2 customer, the Defender Vulnerability Management add-on.</p>
+</blockquote>
+<p>Instead of running never-ending compliance scans, security baselines assessment helps you to continuously and effortlessly monitor your organization's security baselines compliance and identify changes in real time.</p>
+<p>A security baseline profile is a customized profile that you can create to assess and monitor endpoints in your organization against industry security benchmarks. When you create a security baseline profile, you're creating a template that consists of multiple device configuration settings and a base benchmark to compare against.</p>
+<p>Security baselines provide support for Center for Internet Security (<strong>CIS)</strong> benchmarks for Windows 10, Windows 11, and Windows Server 2008 R2 and above, as well as Security Technical Implementation Guides (<strong>STIG)</strong> benchmarks for Windows 10 and Windows Server 2019.</p>
+<blockquote>
+<p>[!NOTE]
+The benchmarks currently only support Group Policy Object (GPO) configurations and not Microsoft Configuration Manager (Intune).</p>
+<p>[!TIP]
+Did you know you can try all the features in Microsoft Defender Vulnerability Management for free? Find out how to <a href="defender-vulnerability-management-trial.md">sign up for a free trial</a>.</p>
+<p>[!NOTE]
+Security baseline assessment is not supported when DFSS (Dynamic Fair Share Scheduling) is enabled on Windows Server 2012 R2.</p>
+</blockquote>
+<h2 id="get-started-with-security-baselines-assessment">Get started with security baselines assessment</h2>
+<ol>
+<li>Go to <strong>Vulnerability management</strong> &gt; <strong>Baselines assessment</strong> in the <a href="https://security.microsoft.com">Microsoft Defender portal</a>.</li>
+<li>Select the <strong>Profiles</strong> tab at the top, then select the <strong>Create profile</strong> button.</li>
+<li>Enter a name and description for your security baselines profile and select <strong>Next</strong>.</li>
+<li>On the <strong>Baseline profile scope</strong> page set the profile settings such as software, base benchmark (CIS or STIG), and the compliance level and select <strong>Next</strong>.</li>
+<li>Select the configurations you want to include in the profile.</li>
+</ol>
+<p>:::image type="content" source="/defender/media/defender-vulnerability-management/add_configuration_settings.png" alt-text="Screenshot of the add configuration settings page" lightbox="/defender/media/defender-vulnerability-management/add_configuration_settings.png":::</p>
+<p>Select <strong>Customize</strong> if you  want to change the threshold configuration value for your organization.</p>
+<p>:::image type="content" source="/defender/media/defender-vulnerability-management/baselines_customize_configuration.png" alt-text="Screenshot of the customize configuration settings page"  lightbox="/defender/media/defender-vulnerability-management/baselines_customize_configuration.png":::</p>
+<ol>
+<li>Select <strong>Next</strong> to choose the device groups and device tags you want to include in the baseline profile. The profile will be automatically applied to devices added to these groups in the future.</li>
+<li>Select <strong>Next</strong> to review the profile.</li>
+<li>Select <strong>Submit</strong> to create your profile.</li>
+<li>On the final page, select <strong>View profile page</strong> to see the assessment results.</li>
+</ol>
+<blockquote>
+<p>[!NOTE]
+You can create multiple profiles for the same operating system with various customizations.</p>
+</blockquote>
+<p>When you customize a configuration an icon will appear beside it to indicate that it has been customized and is no longer using the recommended value. Select the <strong>reset</strong> button to revert to the recommended value.</p>
+<p>Useful icons to be aware of:</p>
+<p><img alt="Previously customized configuration" src="/defender/media/defender-vulnerability-management/previous_customization.png" /> - This configuration has been customized before. When creating a new profile if you select <strong>Customize</strong>, you'll see the available variations you can choose from.</p>
+<p><img alt="Not using the default value" src="/defender/media/defender-vulnerability-management/customized_value.png" /> - This configuration has been customized and is not using the default value.</p>
+<h2 id="security-baselines-assessment-overview">Security baselines assessment overview</h2>
+<p>On the security baselines assessment overview page you can view device compliance, profile compliance, top failing devices and top misconfigured devices.</p>
+<h2 id="review-security-baseline-profile-assessment-results">Review security baseline profile assessment results</h2>
+<ol>
+<li>In the <strong>Profiles</strong> page, select any of your profiles to open a flyout with additional information.</li>
+</ol>
+<p>:::image type="content" source="/defender/media/defender-vulnerability-management/baseline_profile.png" alt-text="Screenshot of the baseline profile page" lightbox="/defender/media/defender-vulnerability-management/baseline_profile.png":::</p>
+<ol>
+<li>Select <strong>Open profile page</strong>. The profile page contains two tabs <strong>Configurations</strong> and <strong>Devices</strong>.</li>
+</ol>
+<h3 id="view-by-configuration">View by configuration</h3>
+<p>In the <strong>Configurations</strong> tab, you can review the list of configurations and assess their reported compliance state.</p>
+<p>:::image type="content" alt-text="Configuration tab in the profile page" source="/defender/media/defender-vulnerability-management/security-baselines-configurations.png" lightbox="/defender/media/defender-vulnerability-management/security-baselines-configurations.png":::</p>
+<p>By selecting a configuration in the list, you'll see a flyout with details for the policy setting, including the recommended value (the expected value range for a device to be considered compliant) and the source used to determine the current device settings.</p>
+<p>:::image type="content" alt-text="Configuration flyout details in the profile page" source="/defender/media/defender-vulnerability-management/security-baselines-configurations-details.png" lightbox="/defender/media/defender-vulnerability-management/security-baselines-configurations-details.png":::</p>
+<p>The <strong>Devices</strong> tab shows a list of all applicable devices and their compliance state against this specific configuration. For each device, you can use the current value detected to see why it's compliant or non compliant.</p>
+<p>:::image type="content" source="/defender/media/defender-vulnerability-management/security-baselines-compliance.png" alt-text="Screenshot of the baseline compliance page" lightbox="/defender/media/defender-vulnerability-management/security-baselines-compliance.png":::</p>
+<h3 id="view-by-device">View by device</h3>
+<p>In the main <strong>Devices</strong> tab, you can review the list of devices and assess their reported compliance state.</p>
+<p>By selecting a device in the list, you'll see a flyout with additional details.</p>
+<p>:::image type="content" alt-text="Devices tab in the profile page" source="/defender/media/defender-vulnerability-management/security-baselines-device-details.png" lightbox="/defender/media/defender-vulnerability-management/security-baselines-configurations-details.png":::</p>
+<p>Select the <strong>Configuration</strong> tab to view the compliance of this specific device against all the profile configurations.</p>
+<p>At the top of the device side panel, select <strong>Open device page</strong> to go to the device page in the device inventory. The device page displays the <strong>Baseline compliance</strong> tab that provides granular visibility into the compliance of the device.</p>
+<p>By selecting a configuration in the list, you'll see a flyout with compliance details for the policy setting on this device.</p>
+<h2 id="create-and-manage-exceptions">Create and manage exceptions</h2>
+<p>You may have cases where you don't want to assess specific configurations on certain devices. For example, a device could be under third party control or it could have an alternate mitigation already in place. In these situations, you can add exceptions to exclude the assessment of specific configurations on a device.</p>
+<p>Devices included in exceptions won't be assessed for the specified configurations in the baseline profiles. This means it won't affect an organization's metrics and score, and it can help provide organizations with a clearer view of their compliance.</p>
+<p>To view exceptions:</p>
+<ol>
+<li>Go to <strong>Vulnerability management</strong> &gt; <strong>Baselines assessment</strong> in the <a href="https://security.microsoft.com">Microsoft Defender portal</a>.</li>
+<li>Select the <strong>Exceptions</strong> tab at the top</li>
+</ol>
+<p>:::image type="content" alt-text="Exceptions tab in the profile page" source="/defender/media/defender-vulnerability-management/security-baselines-exceptions.png" lightbox="/defender/media/defender-vulnerability-management/security-baselines-exceptions.png":::</p>
+<p>To add a new exception:</p>
+<ol>
+<li>On the <strong>Exceptions</strong> tab select the <strong>Create</strong> button.</li>
+<li>
+<p>Fill in the requested details, including the justification reason, and duration.</p>
+</li>
+<li>
+<p>Select <strong>Next</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Configuration scope</strong> page choose the software, base benchmark, and the compliance level and select <strong>Next</strong>.</p>
+</li>
+<li>Select the configurations you want to add to the exception.</li>
+</ol>
+<p>:::image type="content" source="/defender/media/defender-vulnerability-management/security-baselines-exceptions-configurations.png" alt-text="Screenshot of the configuration exceptions page" lightbox="/defender/media/defender-vulnerability-management/security-baselines-exceptions-configurations.png":::</p>
+<ol>
+<li>Select <strong>Next</strong> to choose the devices you want to include in the exception. The exception will be automatically applied to devices.</li>
+<li>Select <strong>Next</strong> to review the exception.</li>
+<li>Select <strong>Submit</strong> to create your exception.</li>
+<li>On the final page, select <strong>View all exceptions</strong> to return to the exceptions page.</li>
+</ol>
+<p>In the <strong>Exceptions</strong> page, select any of your exceptions to open a flyout pane where you can see the status, edit or delete your exception:</p>
+<p>:::image type="content" source="/defender/media/defender-vulnerability-management/security-baselines-exceptions-details.png" alt-text="Screenshot of the exceptions side  details page" lightbox="/defender/media/defender-vulnerability-management/security-baselines-exceptions-details.png":::</p>
+<h2 id="use-advanced-hunting">Use advanced hunting</h2>
+<p>You can run advanced hunting queries on the following tables to gain visibility on security baselines in your organization:</p>
+<ul>
+<li><strong>DeviceBaselineComplianceProfiles</strong>: provides details on created profiles.</li>
+<li><strong>DeviceBaselineComplianceAssessment</strong>: device compliance related information.</li>
+<li><strong>DeviceBaselineComplianceAssessmentKB</strong>: general settings for CIS and STIG benchmarks (not related to any device).</li>
+</ul>
+<h2 id="related-articles">Related articles</h2>
+<ul>
+<li><a href="tvm-weaknesses.md">Vulnerabilities in my organization</a></li>
+<li><a href="/defender-xdr/advanced-hunting-schema-tables">Advanced hunting schema reference</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.top", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
