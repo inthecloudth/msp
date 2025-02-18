@@ -1,0 +1,677 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CSoG - Customer Self-onboarding Guides">
+      
+      
+      
+        <link rel="canonical" href="https://inthecloudth.github.io/msp/entra/hbj/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Microsoft Entra hybrid join targeted deployment - In the Cloud</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Microsoft Entra hybrid join targeted deployment - In the Cloud" >
+      
+        <meta  property="og:description"  content="CSoG - Customer Self-onboarding Guides" >
+      
+        <meta  property="og:image"  content="https://inthecloudth.github.io/msp/assets/images/social/entra/hbj.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://inthecloudth.github.io/msp/entra/hbj/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Microsoft Entra hybrid join targeted deployment - In the Cloud" >
+      
+        <meta  name="twitter:description"  content="CSoG - Customer Self-onboarding Guides" >
+      
+        <meta  name="twitter:image"  content="https://inthecloudth.github.io/msp/assets/images/social/entra/hbj.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microsoft-entra-hybrid-join-targeted-deployment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="In the Cloud" class="md-header__button md-logo" aria-label="In the Cloud" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            In the Cloud
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Microsoft Entra hybrid join targeted deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adds/reset-domain-admin-password/" class="md-tabs__link">
+          
+  
+  Windows
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="In the Cloud" class="md-nav__button md-logo" aria-label="In the Cloud" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    In the Cloud
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Windows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AD DS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            AD DS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adds/reset-domain-admin-password/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reset a forgotten domain admin password
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-pilot-device-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a pilot device group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configure-gpo-settigs-to-enable-entra-hybrid-join-targeted-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configure GPO settigs to enable Entra Hybrid join targeted deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configure-entra-connect-scopes-to-sync-device-objects-to-entra-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configure Entra Connect scopes to sync device objects to Entra ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-test-a-pilot-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Test a pilot client
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Test a pilot client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-move-a-pilot-device-to-a-synced-ou-add-to-the-pilot-device-group-and-restart-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Move a pilot device to a synced OU, add to the pilot device group, and restart the client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-nothing-to-do-just-wait-until-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Nothing to do, just wait until success
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-test-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Test SSO
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-optional-speed-up-the-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. (Optional) Speed up the process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#video" class="md-nav__link">
+    <span class="md-ellipsis">
+      Video
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="microsoft-entra-hybrid-join-targeted-deployment">Microsoft Entra hybrid join targeted deployment</h1>
+<p>เครื่องคอมพิวเตอร์ที่ join on-premises AD DS อยู่ สามารถนำไป join Entra ID โดยอัตโนมัติได้ด้วยการทำ Entra Hybrid Join</p>
+<p>ในขณะที่เราสามารถรีรัน Entra Connect เพื่อสร้าง Service Connection Point (SCP) ลงใน AD DS ให้ทุกเครื่องที่ join domain มองเห็น ตาม <a href="https://learn.microsoft.com/en-us/entra/identity/devices/how-to-hybrid-join#managed-domains">Configure Microsoft Entra hybrid join</a></p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-36.png" /></p>
+<p>เรายังสามารถทำอีกวิธีนึงได้นั่นคือ ทำให้ device แค่บางเครื่องรู้จักข้อมูลของ tenant ผ่านค่า registry บนเครื่อง เช่น deploy ค่าผ่าน GPO ตาม <a href="https://learn.microsoft.com/en-us/entra/identity/devices/hybrid-join-control">Microsoft Entra hybrid join targeted deployment</a></p>
+<p>แล้ว device จะใช้ข้อมูล tenant จาก SCP (ใน AD DS) หรือ registry (บนเครื่อง) เข้าไปทำ Entra Hybrid Join ต่อไป</p>
+<p>Entra Hybrid Join ช่วยให้เครื่องที่ join AD DS มี identity ใน Entra ID ได้รับประโยชน์จาก SSO, เป็นสมาชิกของ device group ได้, ใช้ทำ device-based authentication ได้ เป็นต้น</p>
+<p>เนื่องจากเราต้องการให้ทุกคนสามารถเริ่มต้นใช้งานระบบต่างๆ ด้วยตัวเองได้ โดยไม่กระทบสิ่งที่ใช้งานอยู่เป็นวงกว้าง ในคู่มือนี้จึงเป็นการทำ Entra Hybrid Join แบบ targeted นะครับ</p>
+<h2 id="1-create-a-pilot-device-group">1. Create a pilot device group</h2>
+<p>สร้าง device group สำหรับ pilot Entra Hybrid Join</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-29.png" /></p>
+<h2 id="2-configure-gpo-settigs-to-enable-entra-hybrid-join-targeted-deployment">2. Configure GPO settigs to enable Entra Hybrid join targeted deployment</h2>
+<p>1. Copy ค่า Tenant ID และ Tenant name เพื่อนำไปใช้ใน GPO</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-32.png" /></p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-33.png" /></p>
+<p>2. สร้าง GPO และตั้งค่า settings ตาม <a href="https://learn.microsoft.com/en-us/entra/identity/devices/hybrid-join-control#configure-client-side-registry-setting-for-scp">
+Configure client-side registry setting for SCP</a></p>
+<p>แล้ว link ไปที่ device OU ที่เราต้องการ enable Entra Hybrid Join ให้กับ device ภายใต้ OU นั้น</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-42.png" /></p>
+<p>3. ที่ Security Filtering ของ GPO</p>
+<ul>
+<li>ลบ Authenticated Users ออก (เพื่อไม่ให้ GPO apply เข้าหาทุกเครื่องภายใต้ OU)</li>
+<li>แล้วเพิ่ม pilot device group เข้าไป (เพื่อให้ GPO apply เข้าหาเครื่องที่อยู่ใน group นี้เท่านั้น)</li>
+</ul>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-34.png" /></p>
+<p>ที่ tab Delegation, ให้สิทธิ์ Read กับ Authenticated Users</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-35.png" /></p>
+<h2 id="3-configure-entra-connect-scopes-to-sync-device-objects-to-entra-id">3. Configure Entra Connect scopes to sync device objects to Entra ID</h2>
+<p>รีรัน Entra Connect</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-38.png" /></p>
+<p>แล้วเลือก OU ที่มี device ที่ต้องการ sync ไปยัง Entra ID</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-39.png" /></p>
+<p>ตอนนี้ เราตั้งค่าสำหรับทำ targeted deployment ครบถ้วนแล้ว</p>
+<p>ดังนั้นเราไปทดลองทำ Entra Hybrid Join ให้กับ pilot device เครื่องแรกกันนะครับ</p>
+<h2 id="4-test-a-pilot-client">4. Test a pilot client</h2>
+<h3 id="41-move-a-pilot-device-to-a-synced-ou-add-to-the-pilot-device-group-and-restart-the-client">4.1 Move a pilot device to a synced OU, add to the pilot device group, and restart the client</h3>
+<p>1. ย้าย client มาอยู่ใน OU ที่ถูก sync ขึ้น Entra ID</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-31.png" /></p>
+<p>2. เพิ่ม client เข้าไปเป็นสมาชิกของ pilot device group</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-30.png" /></p>
+<p>3. แล้ว restart เครื่อง client เพื่อให้เครื่องได้รับ SID ของ group</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-16.png" /></p>
+<h3 id="42-nothing-to-do-just-wait-until-success">4.2 Nothing to do, just wait until success</h3>
+<p>เมื่อ restart กลับมา เราไม่ต้อง sign in ก็ได้นะครับ</p>
+<p>เพียงแค่รอเท่านั้น</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-40.png" /></p>
+<p>Automatic-Device-Join task บน device ที่รันทุกๆ 1 ชั่วโมง (หรือ เมื่อมีผู้ใช้ sign in เข้าเครื่อง) จะค้นหาข้อมูลของ tenant จาก registry บนเครื่อง (ที่ deploy ผ่าน GPO มา)</p>
+<p>เมื่อพบข้อมูลของ tenant ก็จะ generate self-signed certificate แล้วนำส่วน public key ไปเขียนลงใน userCertificate attribute ของ computer object ตัวเองใน AD DS</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-43.png" /></p>
+<p>จากนั้น Entra Connect จะ sync computer object เครื่องนั้น ขึ้นไปยัง Entra ID ต่อไป</p>
+<p>แต่เครื่องจะยังมีสถานะเป็น Pending อยู่นะครับ</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-28.png" /></p>
+<p>และเมื่อ Automatic-Device-Join task ถึงรอบรันอีกครั้ง</p>
+<p>เขาก็จะนำเครื่องเข้าไปทำ authentication กับ Entra ID อีกครั้ง แล้วกลายเป็น Entra Hybrid joined device โดยสมบูรณ์ต่อไป</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-27.png" /></p>
+<h3 id="43-test-sso">4.3 Test SSO</h3>
+<p>เมื่อเครื่องเป็น Entra Hybrid join devices โดยสมบูรณ์แล้ว</p>
+<p>เราก็ลอง sign in เข้าเครื่อง</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-41.png" /></p>
+<p>ก็จะพบว่า ตอนนี้เราได้รับ Primary Refresh Token (PRT) (ดูที่ SSO State) แล้วนะครับ</p>
+<pre><code>dsregcmd /status
+</code></pre>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-25.png" /></p>
+<p>และ app บนเครื่องก็จะนำ PRT นี้ไปทำ SSO เข้าใช้งาน app หรือบริการต่างๆ  ที่ใช้ Entra ID เป็น identity provider ต่อไป</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-26.png" /></p>
+<h2 id="5-optional-speed-up-the-process">5. (Optional) Speed up the process</h2>
+<p>บางครั้ง ในการทดสอบ pilot device เราคงไม่อยากรอให้ Entra Hybrid Join process เสร็จสมบูรณ์ด้วยตัวของเขาเอง</p>
+<p>แต่เราน่าจะอยากเร่งความเร็วของ process ให้เสร็จเร็วขึ้นแทน</p>
+<p>ดังนั้น จาก <a href="https://learn.microsoft.com/en-us/entra/identity/devices/device-registration-how-it-works#microsoft-entra-hybrid-joined-in-managed-environments">Microsoft Entra hybrid joined in Managed environments</a></p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-44.png" /></p>
+<p>เรามาลองเร่งความเร็วของ process ด้วยตัวเองดูนะครับ</p>
+<p>1. Sign in เข้าเครื่อง โดยไม่ต้องรอ เพื่อ trigger ให้ Automatic-Device-Join task รันเลย</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-45.png" /></p>
+<p>Task จะ generate self-signed certificate แล้วส่งส่วนของ public key ไปแปะไว้ใน computer object ของตัวเองใน AD DS</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-46.png" /></p>
+<p>2. Force Entra Connect ให้ sync computer object ไปยัง Entra ID โดยไม่ต้องรอรอบ sync ทุกๆ 30 นาที</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-37.png" /></p>
+<p>แล้ว computer object จะถูก sync ขึ้นไป แต่สถานะจะยังเป็น Pending อยู่</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-28.png" /></p>
+<p>3. และสุดท้าย ให้เรา manual รัน Automatic-Device-Join task เพื่อเข้าไปทำ authentication กับ Entra ID อีกครั้ง</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-21.png" /></p>
+<p>แล้วเครื่องก็จะกลายเป็น Entra Hybrid joined device โดยสมบูรณ์ ในที่สุด ในเวลาอันรวดเร็ว ตามที่เราต้องการครับ</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-27.png" /></p>
+<h2 id="next-steps">Next steps</h2>
+<p>หลังจากทดสอบ targeted deployment แล้ว เราก็จะทยอยเพิ่มเครื่องเข้าไปใน pilot device group และ Entra ID sync scopes เพื่อทดสอบเพิ่มเติม</p>
+<p>และถ้าเรามั่นใจแล้วว่า Entra Hybrid Join ไม่ส่งผลกระทบต่อการทำงานของเครื่องส่วนใหญ่ เราอาจจะลบ GPO Entra Hybrid Join ออก</p>
+<p>แล้วรีรัน Entra Connect เพื่อสร้าง SCP ลงใน AD DS ให้ทุกเครื่องที่ join domain เห็นต่อไป ตาม <a href="https://learn.microsoft.com/en-us/entra/identity/devices/how-to-hybrid-join#managed-domains">Configure Microsoft Entra hybrid join</a></p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-36.png" /></p>
+<p>ซึ่งตัวอย่างของ SCP object ที่ถูกสร้างโดยการรีรัน Entra Connect ก็จะมีหน้าตาประมาณนี้นะครับ</p>
+<p><img alt="alt text" src="../../assets/ehj/250213/image-47.png" /></p>
+<h2 id="video">Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nT7IRCWk9_g?si=PaSaXBCyW5B3R0Oz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/entra/identity/devices/hybrid-join-control">Microsoft Entra hybrid join targeted deployment</a></li>
+<li><a href="https://learn.microsoft.com/en-us/entra/identity/devices/device-registration-how-it-works#microsoft-entra-hybrid-joined-in-managed-environments">Microsoft Entra hybrid joined in Managed environments</a></li>
+<li><a href="https://learn.microsoft.com/en-us/entra/identity/devices/how-to-hybrid-join#managed-domains">Configure Microsoft Entra hybrid join</a> 
+...</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.top"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
