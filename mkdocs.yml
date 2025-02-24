@@ -11,7 +11,7 @@ theme:
   font:
     text: Roboto
   palette:
-    primary: white
+    primary: indigo
 plugins:
   - social:
       cards_layout_options:
