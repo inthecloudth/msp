@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://inthecloudth.github.io/msp/</loc>
-         <lastmod>2025-02-19</lastmod>
+         <loc>https://inthecloudth.github.io/msp/index2/</loc>
+         <lastmod>2025-02-24</lastmod>
     </url>
     <url>
          <loc>https://inthecloudth.github.io/msp/adds/reset-domain-admin-password/</loc>
-         <lastmod>2025-02-19</lastmod>
+         <lastmod>2025-02-24</lastmod>
     </url>
     <url>
          <loc>https://inthecloudth.github.io/msp/entra/conditional-access-secure-foundation/</loc>
-         <lastmod>2025-02-19</lastmod>
+         <lastmod>2025-02-24</lastmod>
     </url>
     <url>
          <loc>https://inthecloudth.github.io/msp/entra/hybrid-join-targeted/</loc>
-         <lastmod>2025-02-19</lastmod>
+         <lastmod>2025-02-24</lastmod>
     </url>
     <url>
          <loc>https://inthecloudth.github.io/msp/intune/hbjintune/</loc>
-         <lastmod>2025-02-19</lastmod>
+         <lastmod>2025-02-24</lastmod>
     </url>
 </urlset>
