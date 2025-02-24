@@ -11,7 +11,7 @@ theme:
   font:
     text: Roboto
   palette:
-    primary: indigo
+    primary: teal
 plugins:
   - social:
       cards_layout_options:
@@ -32,4 +32,3 @@ nav:
       - Hybrid Join - Targeted deployment: entra/hybrid-join-targeted.md
   - Contact Us:
     - Submit a request: adds/reset-domain-admin-password.md
-
