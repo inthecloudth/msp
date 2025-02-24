@@ -1,0 +1,35 @@
+site_name: "In the Cloud"
+site_url: https://inthecloudth.github.io/msp
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.path
+    - navigation.top
+#    - navigation.sections
+  logo: assets/images/logo.png
+  font:
+    text: Roboto
+  palette:
+    primary: white
+plugins:
+  - social:
+      cards_layout_options:
+        font_family: Roboto
+extra_css:
+  - stylesheets/extra.css
+nav:
+  - Home: index.md
+  - How To:
+    - AD DS:
+      - Reset a forgotten domain admin password: adds/reset-domain-admin-password.md
+  - Troubleshoot:
+    - AD DS:
+      - Reset a forgotten domain admin password: adds/reset-domain-admin-password.md
+  - Self-Onboard:
+    - Entra:
+      - Conditional Access - Secure foundation: entra/conditional-access-secure-foundation.md
+      - Hybrid Join - Targeted deployment: entra/hybrid-join-targeted.md
+  - Contact Us:
+    - Submit a request: adds/reset-domain-admin-password.md
+
